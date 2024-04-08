@@ -31,11 +31,17 @@ export default {
         this.boardDetail();
     },
     methods: {
+        up(bno) {
+            //alert(bno)
+            this.requestBody.bno = bno
+            this.$router.push({ path: './update', query: this.requestBody })
+        },
+
         del() {
             //alert(bno)
             if (confirm("삭제하시겠습니까?")) {
                 axios({
-                    url: "http://172.30.1.59:3000/del",
+                    url: this.$server + "/del",
                     method: "post",
                     params: { bno: this.detail.board_no }
                 }).then((res) => {
@@ -50,7 +56,7 @@ export default {
             }
         },
         boardDetail() {
-            axios.get("http://172.30.1.59:3000/detail?bno=" + this.$route.query.bno)
+            axios.get(this.$server + "/detail?bno=" + this.$route.query.bno)
                 .then(res => { this.detail = res.data })
                 .catch(err => {
                     alert("문제가 발생했습니다. 잠시 후 다시 시도해주세요." + err);

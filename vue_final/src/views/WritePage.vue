@@ -22,7 +22,7 @@ export default {
             saveData.title = this.title
             saveData.content = this.content
             saveData.mno = 1
-            axios.post('http://172.30.1.59:3000/write', JSON.stringify(saveData), {
+            axios.post(this.$server+'/write', JSON.stringify(saveData), {
                 headers: { "Content-Type": "application/json" }
             }).then((res) => alert("통신결과 : " + res.data.result)
             ).catch((err) => alert('문제가 발생했습니다' + err))

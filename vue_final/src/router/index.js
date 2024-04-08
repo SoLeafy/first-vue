@@ -6,7 +6,8 @@ const routes = [
   { path: "/boardList", component: BoardList },
   { path: "/login", component: () => import("../views/LoginPage.vue") },
   { path: "/detail", component: () => import("../views/DetailPage.vue") },
-  { path: "/write", component: () => import("../views/WritePage.vue") }
+  { path: "/write", component: () => import("../views/WritePage.vue") }, 
+  { path: '/update', component: () => import("../views/UpdatePage.vue")}
 ];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
